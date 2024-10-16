@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Form</title>
+    <link rel="stylesheet" href="Request-styles.css">
+</head>
+<body>
+    <div class="request-form-container">
+        <h1>Request Form</h1>
+        
+        <form id="requestForm" onsubmit="return handleSubmit(event)">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="description">Request Description</label>
+            <textarea id="description" name="description" placeholder="Enter details about your request" required></textarea>
+
+            <button type="submit">Submit Request</button>
+        </form>
+
+        <div class="button-container">
+            <button onclick="window.location.href='/dashboard'">Back to Dashboard</button>
+        </div>
+
+        <!-- ส่วนที่จะแสดงข้อความตอบกลับจากเซิร์ฟเวอร์ -->
+        <div id="message" style="color: green; margin-top: 30px;"></div>
+    </div>
+
+    <!-- JavaScript เพื่อจัดการฟอร์มและส่งข้อมูล -->
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault(); // ป้องกันการ reload หน้า
+
+            // เก็บค่าจากฟอร์ม
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const description = document.getElementById('description').value;
+
+            // แสดงข้อมูลใน console ของเบราว์เซอร์
+            console.log(`Submitting request for ${fullName} (${email}): ${description}`);
+
+            // ส่งข้อมูลไปยัง backend โดยใช้ fetch API
+            fetch('/submit-request', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ fullName, email, description })
+            })
+            .then(response => response.text())
+            .then(data => {
+                console.log(data); // แสดงผลตอบกลับจากเซิร์ฟเวอร์ใน console
+                document.getElementById('message').innerText = data; // แสดงข้อความบนหน้าเว็บ
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('message').innerText = 'An error occurred. Please try again.';
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #14172a; /* พื้นหลังสีเข้ม */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-image: radial-gradient(circle, rgba(30, 30, 60, 0.8), #1c1f35);
+}
+
+.request-form-container {
+  background: rgba(45, 50, 75, 0.9); /* กล่องโปร่งใส */
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* เงา */
+  width: 400px;
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  text-align: center;
+}
+
+h1 {
+  color: #FFC107; /* สีเหลืองธรรมศาสตร์ */
+  font-size: 26px;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+label {
+  display: block;
+  text-align: left;
+  color: #d0d5e6;
+  margin-bottom: 5px;
+}
+
+input, textarea {
+  width: 93%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: #3b3e61;
+  color: #fff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+textarea {
+  height: 120px;
+  resize: vertical;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #b0b0c0;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  background: #FFB300;
+  color: #b3002f;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 10px 25px rgba(255, 179, 63, 0.4);
+  margin-top: 10px; /* เพิ่มระยะห่างระหว่างฟอร์มกับปุ่ม */
+}
+
+button:hover {
+  background-color: #FFAA00;
+  transform: translateY(-2px);
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.secondary-button, .dashboard-button {
+  width: 48%;
+  background-color: #3b3e61;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.secondary-button:hover, .dashboard-button:hover {
+  background-color: #505480;
+  transform: translateY(-2px);
+}
+
+#message {
+  color: #28a745; /* สีเขียวเพื่อแสดงว่าทำงานสำเร็จ */
+  font-size: 16px; /* ปรับขนาดข้อความ */
+  font-weight: bold; /* ข้อความหนาขึ้น */
+}

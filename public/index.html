@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Login Page</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="avatar">
+            <span class="material-icons">account_circle</span>
+          </div>
+               
+        <h1>Login Page</h1>
+
+        <!-- ฟอร์มเข้าสู่ระบบ -->
+        <form id="loginForm" action="/auth/login" method="POST" onsubmit="return handleLogin(event)">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+            <label for="role">Select your role</label>
+            <select id="role" name="role" required>
+                <option value="">Select your role</option>
+                <option value="student">Student</option>
+                <option value="lecturer">Lecturer</option>
+            </select>
+
+            <div class="all-button">
+                <button type="submit">Login</button>
+
+                <div class="button-container">
+                    <button class="secondary-button" onclick="window.location.href='/request-form'">Request Form</button>
+                    <button class="dashboard-button" onclick="window.location.href='/dashboard'">Dashboard</button>
+                </div>   
+            </div>         
+
+            <!-- แสดงข้อความแจ้งเตือนเมื่อ login ล้มเหลว -->
+            <div id="message" style="color: red; margin-top: 15px;"></div>
+        </form>
+    </div>
+    
+<script>
+    function handleLogin(event) {
+        event.preventDefault(); // ป้องกันการ reload หน้า
+
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const role = document.getElementById('role').value;
+
+        // ส่งข้อมูลไปที่ backend
+        fetch('/auth/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ username, password, role })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // หาก login สำเร็จ redirect ไปที่ dashboard
+                window.location.href = '/dashboard';
+            } else {
+                // หาก login ล้มเหลว แสดงข้อความแจ้งเตือน
+                document.getElementById('message').textContent = 'Login failed: ' + data.message;
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            document.getElementById('message').textContent = 'An error occurred. Please try again.';
+        });
+    }
+</script>          
+</body>
+</html>
