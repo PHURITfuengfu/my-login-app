@@ -1,27 +1,27 @@
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #14172a; /* พื้นหลังสีเทาเข้ม แต่ไม่มืดจนเกินไป */
+  background-color: #14172a; 
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   margin: 0;
-  background-image: radial-gradient(circle, rgba(30, 30, 60, 0.8), #1c1f35); /* ปรับโทนสว่างขึ้น */
+  background-image: radial-gradient(circle, rgba(30, 30, 60, 0.8), #1c1f35); 
 }
 
 .login-container {
-  background: rgba(45, 50, 75, 0.9); /* กล่องโปร่งใสเล็กน้อย */
+  background: rgba(45, 50, 75, 0.9); 
   padding: 40px;
   border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* เงาให้ดูเบาลง */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); 
   text-align: center;
   width: 350px;
-  backdrop-filter: blur(8px); /* เบลอพื้นหลังเล็กน้อย */
+  backdrop-filter: blur(8px); 
   color: #ffffff;
 }
 
 h1 {
-  color: #ffffff; /* สีเหลืองที่นุ่มลง */
+  color: #ffffff;
   font-size: 26px;
   margin-bottom: 20px;
 }
@@ -29,7 +29,7 @@ h1 {
 label {
   display: block;
   text-align: left;
-  color: #d0d5e6; /* สีขาวอ่อนสบายตา */
+  color: #d0d5e6; 
   margin-bottom: 5px;
 }
 
@@ -39,17 +39,17 @@ input {
   margin-bottom: 20px;
   border: none;
   border-radius: 10px;
-  background-color: #3b3e61; /* สีพื้นหลังช่องใส่ข้อมูลที่สว่างขึ้น */
+  background-color: #3b3e61; 
   color: #fff;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); /* เงาเบาลง */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
 }
 
 input::placeholder {
-  color: #b0b0c0; /* สี placeholder ที่นุ่มขึ้น */
+  color: #b0b0c0;
 }
 
 .all-button {
-  margin-top: 15px; /* เพิ่ม margin-top เพื่อขยับปุ่มลง */
+  margin-top: 15px; 
 }
 
 button {
@@ -57,18 +57,18 @@ button {
   padding: 12px;
   font-size: 16px;
   font-weight: bold;
-  background: #FFB300; /* สีเหลืองที่นุ่มลงจาก Thammasat Yellow */
-  color: #b3002f; /* สีแดงเข้มสำหรับข้อความ */
+  background: #FFB300; 
+  color: #b3002f;
   border: none;
   border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
-  box-shadow: 0 10px 20px rgba(255, 179, 63, 0.3); /* เงาสีเหลือง */
+  box-shadow: 0 10px 20px rgba(255, 179, 63, 0.3); 
 }
 
 button:hover {
-  background-color: #FFAA00; /* สีเหลืองนุ่มลงเมื่อ hover */
-  transform: translateY(-2px); /* ยกปุ่มขึ้นเล็กน้อย */
+  background-color: #FFAA00; 
+  transform: translateY(-2px); 
 }
 
 .button-container {
@@ -79,14 +79,14 @@ button:hover {
 
 .secondary-button, .dashboard-button {
   width: 48%;
-  background-color: #3b3e61; /* ปรับสีให้สว่างขึ้น */
+  background-color: #3b3e61; 
   color: #fff;
   border: none;
   border-radius: 8px;
   padding: 12px;
   cursor: pointer;
   text-align: center;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); /* เงาเบาลง */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 .secondary-button:hover, .dashboard-button:hover {
@@ -100,9 +100,9 @@ select {
   margin-bottom: 20px;
   border: none;
   border-radius: 10px;
-  background-color: #3b3e61; /* สีพื้นหลัง dropdown */
+  background-color: #3b3e61; 
   color: #fff;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); /* เพิ่มเงา */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); 
 }
 
 select option {
@@ -112,10 +112,10 @@ select option {
 
 .material-icons {
   font-size: 100px;
-  color: #ffffff; /* สีเหลืองที่นุ่มลง */
+  color: #ffffff;
 }
 
 #message {
-  color: #b3002f; /* สีแดงเข้มสบายตา */
+  color: #b3002f; 
   margin-top: 15px;
 }

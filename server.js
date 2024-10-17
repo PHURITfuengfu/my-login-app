@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const session = require('express-session'); // เพิ่ม express-session
+const session = require('express-session');
 const app = express();
 const port = 3000;
 
@@ -14,7 +14,7 @@ app.use(session({
     secret: 'your-secret-key', // ใช้ secret key สำหรับเซสชัน
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false } // หากใช้งาน HTTPS ให้ตั้งเป็น true
+    cookie: { secure: false } // ใช้งาน HTTPS ให้ตั้งเป็น true
 }));
 
 // เสิร์ฟไฟล์ static เช่น HTML, CSS, JS
@@ -39,11 +39,20 @@ app.get('/dashboard', (req, res) => {
     }
 });
 
+// เพิ่ม route สำหรับส่งข้อมูล username ไปแสดงบน dashboard
+app.get('/auth/dashboard', (req, res) => {
+    if (req.session.loggedIn) {
+        res.json({ username: req.session.username }); // ส่งข้อมูล username กลับไปที่ frontend
+    } else {
+        res.status(401).json({ error: 'Not logged in' });
+    }
+});
+
 // ใช้ routing จากไฟล์ auth.js
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
 
-// การจัดการ POST request สำหรับ /submit-request
+// จัดการ POST request สำหรับ /submit-request
 app.post('/submit-request', (req, res) => {
     const { fullName, email, description } = req.body;
 

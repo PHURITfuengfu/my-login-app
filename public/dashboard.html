@@ -9,8 +9,21 @@
 <body>
     <div class="dashboard-container">
         <h1>Welcome to the Dashboard</h1>
-        <p>You have successfully logged in!</p>
+        <p id="welcome-message"></p> <!-- เพิ่มส่วนแสดงชื่อผู้ใช้ -->
         <button onclick="window.location.href='/auth/logout'">Logout</button>
     </div>
+
+    <script>
+        // Fetch ชื่อผู้ใช้จากเซิร์ฟเวอร์ (จาก session)
+        fetch('/auth/dashboard')
+            .then(response => response.json())
+            .then(data => {
+                // แสดงชื่อผู้ใช้ในหน้า dashboard
+                document.getElementById('welcome-message').textContent = `Welcome, ${data.username}!`;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    </script>
 </body>
 </html>

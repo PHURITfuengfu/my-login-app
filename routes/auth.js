@@ -3,14 +3,12 @@ const router = express.Router();
 
 // การจัดการ login POST request
 router.post('/login', (req, res) => {
-    const { username, password } = req.body;
+    const { username } = req.body;
 
-    if (username === 'user' && password === 'pass') {
-        req.session.loggedIn = true;
-        res.status(200).json({ success: true, message: 'Login successful' });
-    } else {
-        res.status(401).json({ success: false, message: 'Invalid credentials' });
-    }
+    // บันทึกชื่อผู้ใช้ใน session
+    req.session.loggedIn = true;
+    req.session.username = username; // เก็บชื่อผู้ใช้ใน session
+    res.status(200).json({ success: true, message: 'Login successful', username });
 });
 
 // การจัดการ logout GET request
@@ -20,16 +18,6 @@ router.get('/logout', (req, res) => {
             return res.status(500).send('Logout failed');
         }
         res.redirect('/'); // redirect กลับไปที่หน้า login
-    });
-});
-
-// การจัดการ logout POST request (ถ้าใช้งาน POST สำหรับ logout)
-router.post('/logout', (req, res) => {
-    req.session.destroy(err => {
-        if (err) {
-            return res.status(500).send('Logout failed');
-        }
-        res.redirect('/');
     });
 });
 
