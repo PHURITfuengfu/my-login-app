@@ -20,8 +20,7 @@ This is a simple **Login Application** built using **Node.js** and **Express**. 
 - **HTML/CSS**: For frontend structure and styling.
 - **Docker**: For containerizing the application.
 
-
-
+-----------------------------------------------------------------------------------------------------------------------
 
 # My-Login-App
 
