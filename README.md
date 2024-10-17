@@ -20,4 +20,25 @@ This is a simple **Login Application** built using **Node.js** and **Express**. 
 - **HTML/CSS**: For frontend structure and styling.
 - **Docker**: For containerizing the application.
 
-## Installation
+
+# My-Login-App
+
+นี่คือแอปพลิเคชัน **Login Application** ที่พัฒนาด้วย **Node.js** และ **Express** แอปนี้ช่วยให้ผู้ใช้สามารถเข้าสู่ระบบ ดูหน้า dashboard และส่งคำร้องต่างๆ ได้ นอกจากนี้ยังมีการจัดการ session ที่ช่วยให้ผู้ใช้เข้าสู่ระบบอย่างปลอดภัยและคงสถานะการยืนยันตัวตนไว้ในระหว่าง session
+
+## คุณสมบัติ
+
+- **การยืนยันตัวตนผู้ใช้**: อนุญาตให้ผู้ใช้เข้าสู่ระบบด้วยชื่อผู้ใช้และรหัสผ่าน
+- **การเลือกบทบาท (Role Selection)**: ผู้ใช้สามารถเลือกบทบาท (นักเรียนหรืออาจารย์) ระหว่างการเข้าสู่ระบบ
+- **Dashboard**: แสดงหน้า dashboard ที่ปรับให้เหมาะสมสำหรับผู้ใช้หลังจากเข้าสู่ระบบสำเร็จ
+- **ฟอร์มคำร้อง (Request Form)**: ผู้ใช้สามารถส่งคำร้องโดยกรอกชื่อเต็ม อีเมล และคำอธิบายคำร้อง
+- **การจัดการ Session**: ใช้ `express-session` ในการจัดการ session ของผู้ใช้
+- **ส่วนหน้า (Frontend)**: ออกแบบด้วย CSS เพื่อให้มี UI ที่สะอาดและตอบสนองอย่างเหมาะสม
+
+## เทคโนโลยีที่ใช้
+
+- **Node.js**: Runtime ของ JavaScript สำหรับการสร้างแอปพลิเคชันฝั่งเซิร์ฟเวอร์
+- **Express.js**: เว็บเฟรมเวิร์กสำหรับจัดการ routing และการทำงานของ HTTP
+- **Body-Parser**: Middleware สำหรับการแปลงข้อมูลใน request body
+- **Express-Session**: สำหรับการจัดการ session
+- **HTML/CSS**: สำหรับโครงสร้างและการออกแบบของ frontend
+- **Docker**: สำหรับการ containerize แอปพลิเคชัน
